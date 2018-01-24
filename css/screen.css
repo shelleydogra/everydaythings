@@ -24,12 +24,12 @@ a.btn:hover { background-color: rgba(0,0,0,.3); }
 header { height: 430px; background: #cf0004 url(../images/banner_1200.jpg) no-repeat center bottom; position: relative; }
 
 header a.logo {
-	 z-index: 1;
-	 position: absolute;
-	 display: block; width: 160px; height: 66px;
-	 background: url(../images/logo.svg) no-repeat 0 0; background-size: contain;
-	 top: 15px; left: 20px;
-	 }
+	z-index: 1;
+	position: absolute;
+	display: block; width: 160px; height: 66px;
+	background: url(../images/logo.svg) no-repeat 0 0; background-size: contain;
+	top: 15px; left: 20px;
+}
 
 header a.logo span {display: none;}
 
@@ -77,7 +77,7 @@ section.how-to blockquote {
 	color: #444;
 	background-color: #fff;
 	position: absolute; bottom: 0; right: 4%;
-	 }
+}
 
 section.how-to blockquote p { margin: 30px 30px 20px 50px; }
 section.how-to blockquote p.quote { font-style: italic; font-size: 1.2em; }
@@ -304,50 +304,81 @@ footer a:hover { color: #000; }
 	section.how-to blockquote p.credit {margin-bottom: 0;}
 
 
-
-
-
-
 	/* Navigation  */
 
 	nav {position: static; width: auto; padding: 20px 15px; background-color: #4b080c;}
+
+
+	nav ul,
+	nav ul ul,
+	nav ul ul ul { display: block; position: static; }
+
+	nav > ul {padding: 0;}
+	nav > ul > li { float: none; margin-top: 25px;}
+
+	nav ul li:hover {background: none;}
+
+	nav ul li a {
+		width: auto;
+		display: block;
+		margin: 8px 10px;
+		padding: 8px 15px;
+		border: 1px solid rgba(255, 255, 255, .25);
+	}
+
+	nav ul li a:hover { background-color: rgba(255, 255, 255, .2); }
+
+	nav ul ul {background: none;}
+
+	nav ul ul li a {margin-left: 30px;}
+
+	nav ul ul ul li a {margin-left: 60px;}
+
+	nav a[aria-haspopup="true"]::after {display: none; }
+
+	/* Footer  */
+
+	footer div.content {display: block; margin-top: 15px;}
+	footer div.content a {margin: 0 20px 0 0;}
+
+	/* END: @media screen and (max-width: 625px)  */
 }
 
-nav ul,
-nav ul ul,
-nav ul ul ul { display: block; position: static; }
+@media screen and (max-width: 425px) {
 
-nav > ul {padding: 0;}
-nav > ul > li { float: none; margin-top: 25px;}
+	/* Header */
 
-nav ul li:hover {background: none;}
+	header {height: 110px; background-image: url(../images/banner_425.jpg);}
 
-nav ul li a {
-	width: auto;
-	display: block;
-	margin: 8px 10px;
-	padding: 8px 15px;
-	border: 1px solid rgba(255, 255, 255, .25);
-}
+	header a.logo {
+		height: 36px; background: rgba(0, 0, 0, .65) url(../images/logo_small.svg) no-repeat center center;
+		background-size: 126px 17px;
+	}
 
-nav ul li a:hover { background-color: rgba(255, 255, 255, .2); }
+	header div.hero {width: 100%; left: 0px;top: 46px; text-align: center;}
 
+	header div.hero h1 {font-size: 1em; margin-bottom: 10px;}
 
+	header div.hero a.btn {padding: 2px 30px; font-size: .8em;}
 
+	header div.hero a.btn span {display: none;}
 
+	/* How-To */
 
-.debug {
-	border: cyan dashed .07em;
-}
+	section.how-to aside div.content {padding: 140px 20px 20px 0px;}
 
-.debug .blue {
-	background-color: #b0f1f1;
-}
+	section.how-to aside div.content img {width: auto; height: 100px; top: 30px; }
 
-.debug .green {
-	background-color: #b1f3bb;
-}
+	section.how-to blockquote {margin: 10px 40px 0 20px;}
 
-.debug .red {
-	background-color: #f3bab1;
-}
+	/* Footer */
+
+	footer::after {content: ''; display: block; clear: both;}
+
+	footer div.content a {
+		display: inline-block; margin: 0 0 10px 0;
+		float: left;
+		clear: both;
+	}
+
+}/* END: @media screen and (max-width: 625px)  */
